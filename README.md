@@ -15,7 +15,7 @@ For [Mapbox](https://www.mapbox.com/), make sure you have:
 
 - registered at [Mapbox](https://www.mapbox.com/)
 - Created a token with secret `Downloads:Read` enabled
-- Store your private and public key
+- Copy/save your private and public key
 
 ## Installation
 
@@ -27,6 +27,6 @@ For [Mapbox](https://www.mapbox.com/), make sure you have:
 
 # Running the App
 - When starting, the app will ask for permission
-- After granted, the app will show "Waiting..." until the latitude and longitude of the user is collected
+- After being granted, the app will show "Waiting..." until the latitude and longitude of the user is collected
 - Then, the "Locate Me" button will be enabled
-- It will show your current location, but it might be inaccurate
+- It will show your current location, but might be inaccurate
