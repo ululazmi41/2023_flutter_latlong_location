@@ -2,6 +2,8 @@
 
 A Flutter project made to use Location and Mapbox to locate the user's location.
 
+<img width="192px" src="https://github.com/ululazmi41/2023_flutter_latlong_location/blob/main/assets/screenshot.jpg?raw=true" />
+
 ## Pre-Installation
 
 Add these 2 permissions on `AndroidManifest`:
