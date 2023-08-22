@@ -41,7 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Location location = Location();
 
-  bool _serviceEnabled = false;
   PermissionStatus _permissionGranted = PermissionStatus.denied;
   LocationData _locationData = LocationData.fromMap({
     "latitude": 0.0,
@@ -52,7 +51,8 @@ class _MyHomePageState extends State<MyHomePage> {
   double currentLong = 0.0;
 
   Future<void> update() async {
-    _serviceEnabled = await location.serviceEnabled();
+    // TODO: utilize
+    bool _serviceEnabled = await location.serviceEnabled();
     if (!_serviceEnabled) {
       _serviceEnabled = await location.requestService();
       if (!_serviceEnabled) {
@@ -60,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
       }
     }
 
+    // TODO: show message if not granted
     _permissionGranted = await location.hasPermission();
     if (_permissionGranted == PermissionStatus.denied) {
       _permissionGranted = await location.requestPermission();
@@ -165,8 +166,10 @@ class _MyHomePageState extends State<MyHomePage> {
               height: MediaQuery.sizeOf(context).width,
               child: isVisible
                   ? mapWidget
-                  : const Center(
-                      child: Text("Waiting..."),
+                  : Center(
+                      child: currentLat != 0.0
+                          ? const Text("Location collected.")
+                          : const Text("Waiting..."),
                     ),
             ),
             Text('LAT: $currentLat'),
